@@ -1,4 +1,5 @@
 
+
 const int LED_PIN = 13;
 String inputBuffer = "";
 
@@ -11,20 +12,29 @@ void setup() {
 }
 
 void loop() {
-  // Check if bytes are arriving down the serial data bus
   while (Serial.available() > 0) {
     char incomingChar = (char)Serial.read();
     
-    // Build the string until a newline carriage return is hit
     if (incomingChar == '\n' || incomingChar == '\r') {
-      inputBuffer.trim(); // Clean off trailing whitespaces
+      inputBuffer.trim(); 
+      
       if (inputBuffer.length() > 0) {
-        Serial.print("Received Raw Buffer: ");
-        Serial.println(inputBuffer);
+        // Execute conditional string matches
+        if (inputBuffer.equalsIgnoreCase("ON")) {
+          digitalWrite(LED_PIN, HIGH);
+          Serial.print("["); Serial.print(millis()); Serial.println("] STATUS: LED Activated.");
+        } 
+        else if (inputBuffer.equalsIgnoreCase("OFF")) {
+          digitalWrite(LED_PIN, LOW);
+          Serial.print("["); Serial.print(millis()); Serial.println("] STATUS: LED Deactivated.");
+        } 
+        else {
+          Serial.print("["); Serial.print(millis()); Serial.println("] ERROR: Invalid Command.");
+        }
       }
-      inputBuffer = ""; // Flush the buffer string
+      inputBuffer = ""; 
     } else {
-      inputBuffer += incomingChar; // Append character to buffer
+      inputBuffer += incomingChar; 
     }
   }
 }
