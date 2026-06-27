@@ -1,4 +1,5 @@
 
+
 // Hardware Pin Definitions
 const int RED_LED = 12;
 const int YELLOW_LED = 11;
@@ -11,7 +12,7 @@ TrafficState currentState = STATE_RED;
 
 // Timing Configurations (in milliseconds)
 unsigned long previousMillis = 0;
-const unsigned long RED_INTERVAL = 5000;       // 5 seconds
+const unsigned long RED_INTERVAL = 5000;         // 5 seconds
 const unsigned long YELLOW_INTERVAL = 2000;    // 2 seconds
 const unsigned long GREEN_INTERVAL = 4000;     // 4 seconds
 const unsigned long PEDESTRIAN_INTERVAL = 8000;  // 8 seconds
