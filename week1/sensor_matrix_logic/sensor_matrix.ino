@@ -1,5 +1,4 @@
 
-
 void setup() {
     Serial.begin(9600);
     // Outer loop controls row iteration (1 through 4)
