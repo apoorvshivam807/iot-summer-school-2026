@@ -1,12 +1,21 @@
+/*******************************************************************************
+ * File Name:    led_blink.ino
+ * Course:       IoT & Embedded Systems Program (IIT Jammu Summer School 2026)
+ * Author:       Apoorv Shivam
+ * Date:         June 27, 2026
+ * Description:  v1.3 - Finalized dynamic LED blink controller. Reads an analog 
+ * voltage from a potentiometer on pin A0 and sets it as the 
+ * non-blocking-ready delay interval for a standard indicator LED. 
+ * Tracks and logs the execution execution cycle count via Serial.
+ *******************************************************************************/
+
 const int ledPin = 13;      // Pin connected to the LED
 const int potPin = A0;      // Pin connected to the potentiometer center terminal
 int blinkCount = 0;         // Variable to keep track of the blink count
 
 void setup() {
   pinMode(ledPin, OUTPUT);
-  Serial.begin(9600);       // Initialize serial communication
-  // Analog pins do not strictly require pinMode configuration for analogRead, 
-  // but it is good practice.
+  Serial.begin(9600);       // Initialize serial communication at 9600 bps
 }
 
 void loop() {
