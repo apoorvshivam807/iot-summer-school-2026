@@ -1,6 +1,6 @@
 
 
-int LED = 2;
+int LED = 13;
 int LDR = A0;
 
 void setup() {
