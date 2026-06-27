@@ -1,6 +1,5 @@
 ## Project Title
-
-Potentiometer Controlled LED Blink
+LED Blink
 
 ---
 
@@ -98,22 +97,25 @@ The LED serves as our physical output indicator indicator. The long positive leg
 ---
 
 ## How to Upload Code
-
-### Step by Step Guide
-
-1. Open your web browser and open your `led_blink.ino` file inside your GitHub repository folder. 
-
-
-2. Launch the desktop Arduino IDE application and paste the copied GitHub code into a clean sketch window.
-3. Plug your physical Arduino UNO board into your computer's USB port using a compatible cable interface. 
+### Tinkercad Simulation Process
+1. Open your web browser and navigate to your active Tinkercad Circuits workspace.
+2. Select your circuit design and click on the Code button located in the top-right toolbar.
+3. Switch the editor interface dropdown from Blocks to Text and click continue.
+4. Paste the specific version code into the editor window and click Start Simulation to run the virtual hardware.
+5. Click the Serial Monitor tab at the bottom of the code panel to view live runtime logging data.
 
 
-4. Go to Tools > Board to select Arduino UNO, and go to Tools > Port to select your active COM port connection.
-5. Click the Verify icon to compile your script, and then click the Upload arrow icon to flash the program into the microcontroller memory.
-6. Open the Serial Monitor tool in the top right corner and set its communication frequency dropdown to 9600 baud.
 
----
+### Arduino IDE Desktop Application Process
 
+1. Connect your physical Arduino UNO board to your laptop using a standard USB interface cable.
+2. Launch your desktop **Arduino IDE** application and open a clean sketch window.
+3. Copy the complete finalized source code from your GitHub repository file and paste it directly into the IDE editor.
+4. Navigate to the top menu toolbar, select **Tools**, hover over **Board**, and select **Arduino UNO**.
+5. Go back to **Tools**, hover over **Port**, and click on the active **COM Port** matching your plugged-in board.
+6. Click the **Verify** icon (checkmark button) in the top-left corner to compile your code and check for errors.
+7. Click the **Upload** icon (right arrow button) right next to it to flash the firmware directly into your microcontroller.
+8. Open the **Serial Monitor** tool by clicking the magnifying glass icon in the top right corner, and verify that the speed dropdown menu is set to **9600 baud**.
 ## Expected Output
 
 ### System Behavior
