@@ -1,0 +1,13 @@
+# Compiled firmware outputs
+*.hex
+*.elf
+*.bin
+
+# IDE settings and build directories
+.vscode/
+build/
+local_config.h
+
+# Operating System junk
+.DS_Store
+Thumbs.db
