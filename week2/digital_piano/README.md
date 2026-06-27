@@ -2,7 +2,6 @@
 Digital Piano Keyboard with Audio Tone Control
 
 ---
-
 ## Student Details
 **Student Name:** Apoorv Shivam  
 
