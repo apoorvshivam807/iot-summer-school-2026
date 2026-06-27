@@ -1,40 +1,36 @@
 
 
 const int LED_PIN = 13;
-String inputBuffer = "";
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);
+  digitalWrite(LED_PIN, LOW); // Start with LED off
   
   Serial.begin(9600);
-  Serial.println("System Online. Enter Command (ON/OFF):");
+  Serial.println("System Online. Type ON or OFF and click Send:");
 }
 
 void loop() {
-  while (Serial.available() > 0) {
-    char incomingChar = (char)Serial.read();
+  // Check if any text has been sent to the serial port
+  if (Serial.available() > 0) {
+    // Read the entire incoming text as a string
+    String command = Serial.readString();
     
-    if (incomingChar == '\n' || incomingChar == '\r') {
-      inputBuffer.trim(); 
-      
-      if (inputBuffer.length() > 0) {
-        // Execute conditional string matches
-        if (inputBuffer.equalsIgnoreCase("ON")) {
-          digitalWrite(LED_PIN, HIGH);
-          Serial.print("["); Serial.print(millis()); Serial.println("] STATUS: LED Activated.");
-        } 
-        else if (inputBuffer.equalsIgnoreCase("OFF")) {
-          digitalWrite(LED_PIN, LOW);
-          Serial.print("["); Serial.print(millis()); Serial.println("] STATUS: LED Deactivated.");
-        } 
-        else {
-          Serial.print("["); Serial.print(millis()); Serial.println("] ERROR: Invalid Command.");
-        }
-      }
-      inputBuffer = ""; 
-    } else {
-      inputBuffer += incomingChar; 
+    // Remove any accidental spaces or hidden characters
+    command.trim();
+    
+    // Check the command (ignores upper/lower case styling)
+    if (command.equalsIgnoreCase("ON")) {
+      digitalWrite(LED_PIN, HIGH);
+      Serial.print("["); Serial.print(millis()); Serial.println("] STATUS: LED Activated.");
+    } 
+    else if (command.equalsIgnoreCase("OFF")) {
+      digitalWrite(LED_PIN, LOW);
+      Serial.print("["); Serial.print(millis()); Serial.println("] STATUS: LED Deactivated.");
+    } 
+    else {
+      Serial.print("["); Serial.print(millis()); Serial.println("] ERROR: Invalid Command received: ");
+      Serial.println(command);
     }
   }
 }
