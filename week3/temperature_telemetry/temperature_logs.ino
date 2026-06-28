@@ -15,7 +15,7 @@ void loop() {
   // 5.0V / 1024 steps = ~0.0048828V per step
   float voltage = rawADC * (5.0 / 1024.0);
   
-  // 3. Apply TMP36 specific calibration math offset
+ // 3. Apply TMP36 specific calibration math offset
   // TMP36 outputs 500mV at 0°C, with a scaling factor of 10mV per degree Celsius
   float temperatureC = (voltage - 0.5) * 100.0;
   
