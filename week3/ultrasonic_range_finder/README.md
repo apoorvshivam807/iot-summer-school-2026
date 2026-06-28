@@ -2,7 +2,6 @@
 Ultrasonic Radar Distance 
 
 ---
-
 ## Student Details
 **Student Name:** Apoorv Shivam  
 
