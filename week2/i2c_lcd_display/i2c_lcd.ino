@@ -9,7 +9,7 @@ void setup()
   lcd_1.begin(16, 2);
 
   // Print our welcome string message to the screen layout
-  lcd_1.print("hello world");
+  lcd_1.print("hii");
   delay(10000); 
 }
 
