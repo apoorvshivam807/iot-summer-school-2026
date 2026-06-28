@@ -5,7 +5,6 @@
 
 LiquidCrystal_I2C lcd(0x20, 16, 2); 
 
-
 SoftwareSerial brainSerial(8, 9); 
 char lastCommand = ' ';
 
