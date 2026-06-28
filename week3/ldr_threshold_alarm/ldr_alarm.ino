@@ -1,4 +1,3 @@
-
 const int LDR_PIN = A0;     // Analog input pin from voltage divider
 const int BUZZER_PIN = 9;   // PWM digital output pin driving the buzzer
 
