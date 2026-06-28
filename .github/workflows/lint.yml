@@ -1,0 +1,27 @@
+name: Arduino Sketch Counter CI
+
+# Trigger events: Runs automatically every time a push happens on main or dev branches
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  analyze-repository:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out your repository code onto the runner machine
+    - name: Checkout Repository Code
+      uses: actions/checkout@v4
+
+    # Step 2: Set up a stable Python runtime environment
+    - name: Initialize Python Runtime
+      uses: actions/setup-python@v5
+      with:
+        python-python: '3.10'
+
+    # Step 3: Run the counting script and output the results directly to the logs
+    - name: Execute .ino Sketch Analyzer
+      run: python count_sketches.py
