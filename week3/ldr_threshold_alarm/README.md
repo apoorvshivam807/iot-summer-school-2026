@@ -76,9 +76,16 @@ The acoustic warning payload consists of a piezo element wired directly between 
 When the simulation kicks off, the Arduino polls the A0 data node every 200 milliseconds and streams the numbers down the serial line. When the virtual slider is moved towards full brightness, the values rise high (above 400) and the buzzer remains completely quiet. When the light slider drops down low into dark coverage conditions ($\le 400$), the code matches the logic threshold, immediately triggering Pin 9 to pulse a 1000Hz alert warning beep.
 
 ### Serial Logging Printouts
-```text
---- LDR Monitor & Alarm System Initialized ---
-Ambient Light Level: 685
-Ambient Light Level: 590
-Ambient Light Level: 320
+
+--- LDR Monitor & Alarm System Initialized ---\
+Ambient Light Level: 685\
+Ambient Light Level: 590\
+Ambient Light Level: 320\
 Ambient Light Level: 210
+
+## Troubleshooting Tips
+Buzzer Screeches Continuously or Fails to Stop
+If the audio alarm rings constantly no matter where you drag the brightness slider, your mathematical comparison logic is reversed or your threshold setting is too high. Double check that your if-statement uses the less-than operator (lightLevel < DARK_THRESHOLD) or adjust your constant down slightly to match room lighting limits.
+
+## Terminal Logs Output Mismatched Fixed Values (0 or 1023 Only)
+If your serial terminal prints out absolute values like 0 or 1023 continuously without reacting to slider alterations, your voltage divider is broken. Ensure your 10k ohm resistor connects to the Ground rail and meets the LDR signal terminal exactly on the same row node row sharing the A0 jumper pin wire.
