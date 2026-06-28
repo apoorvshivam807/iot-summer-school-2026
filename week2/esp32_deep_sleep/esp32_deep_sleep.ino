@@ -1,4 +1,3 @@
-
 #include <Arduino.h>
 
 // Time ESP32 will go to sleep (in seconds)
