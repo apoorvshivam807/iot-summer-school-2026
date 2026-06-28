@@ -1,5 +1,4 @@
 #include <Arduino.h>
-
 // Time ESP32 will go to sleep (in seconds)
 #define TIME_TO_SLEEP   5        
 // Conversion factor for micro seconds to seconds
