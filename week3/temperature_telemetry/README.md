@@ -2,7 +2,6 @@
 Precision Temperature Monitoring Telemetry via Analog Voltage Conversion
 
 ---
-
 ## Student Details
 **Student Name:** Apoorv Shivam  
 
