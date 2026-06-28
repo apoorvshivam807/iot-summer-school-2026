@@ -23,7 +23,6 @@ void loop() {
   // 2. Measure the duration (in microseconds) until the Echo pin goes LOW
   // Timeout set to 30,000 microseconds (~5 meters range max limit)
   long duration = pulseIn(ECHO_PIN, HIGH, 30000);
-  
   // 3. Convert time duration into distance (Centimeters)
   // Speed of sound = 343 m/s = 0.0343 cm/microsecond
   // Distance = (Time * Speed) / 2 [Divided by 2 for the round-trip echo path]
