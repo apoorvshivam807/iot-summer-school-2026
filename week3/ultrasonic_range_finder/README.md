@@ -66,9 +66,16 @@ The HC-SR04 handles distance tracking through physical sound wave projection. Wh
 Once the workspace engine fires up, the module scans the field every 300 milliseconds. The values dynamically shift in step with your mouse adjustments inside the visual target bubble.
 
 ### Serial Logging Printouts
-```text
---- Ultrasonic Radar Distance Logger Initialized ---
-Target Distance: 124.5 cm
-Target Distance: 82.1 cm
-Target Distance: 45.0 cm
+
+--- Ultrasonic Radar Distance Logger Initialized ---\
+Target Distance: 124.5 cm\
+Target Distance: 82.1 cm\
+Target Distance: 45.0 cm\
 Target Status: Out of Range / No Echo Intercepted
+
+## Troubleshooting Tips
+Sensor Value Output Constants Stuck at 0.0cm or Flat Errors
+If your monitor logs show zero distance continuously regardless of obstacle changes, your Echo and Trigger pin wire locations are flipped. Double-check that your code variables match your physical wire paths—Trig must line up with Pin 12 and Echo must step into Pin 13 perfectly.
+
+## Flat 999cm Readings or "Out of Range" Reports Under Close Obstacles
+If the code fails to log real values when an object is right in front of the sensor face, ensure your pulseIn() execution statement does not contain an excessively small microsecond timeout value constraint. Keeping the threshold at roughly 30,000 microseconds guarantees clean echoes from up to 4 to 5 meters away without causing loop stalling errors.
