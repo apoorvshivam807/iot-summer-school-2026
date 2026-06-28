@@ -1,41 +1,48 @@
-#include <SPI.h>
+
+const int SS_PIN = 10;
+const int MOSI_PIN = 11;
+const int SCK_PIN = 13;
 
 void setup() {
-  // Initialize the hardware SPI bus lines (MOSI, MISO, SCK)
-  SPI.begin();
-  
-  // Set the SPI clock divider (divides system clock by 16 to stabilize signals)
-  SPI.setClockDivider(SPI_CLOCK_DIV16);
-  
-  // Configure the hardware Slave Select (SS) pin as an output
-  pinMode(SS, OUTPUT);
-  
-  // Pull Slave Select HIGH to keep the slave device idle initially
-  digitalWrite(SS, HIGH);
-  
   Serial.begin(9600);
+  pinMode(SS_PIN, OUTPUT);
+  pinMode(MOSI_PIN, OUTPUT);
+  pinMode(SCK_PIN, OUTPUT);
+  
+  digitalWrite(SS_PIN, HIGH);
+  digitalWrite(SCK_PIN, LOW);
+  delay(500);
   Serial.println("--- SPI Master Initialized ---");
 }
 
+void sendCharacter(char data) {
+  // Select the slave
+  digitalWrite(SS_PIN, LOW);
+  delay(10);
+  
+  // Shift out 8 bits manually
+  for (int i = 7; i >= 0; i--) {
+    int bitValue = (data >> i) & 1;
+    digitalWrite(MOSI_PIN, bitValue);
+    delay(10);
+    
+    // Pulse the clock high, then low
+    digitalWrite(SCK_PIN, HIGH);
+    delay(10);
+    digitalWrite(SCK_PIN, LOW);
+    delay(10);
+  }
+  
+  // Deselect the slave
+  digitalWrite(SS_PIN, HIGH);
+}
+
 void loop() {
-  // 1. Pull SS LOW to select the slave device and open communication channel
-  digitalWrite(SS, LOW);
-  
-  // 2. Transmit data character '1' down the SPI bus line
-  char signalOn = '1';
-  SPI.transfer(signalOn);
+  sendCharacter('1');
   Serial.println("Master Sent: 1 (Turn LED ON)");
+  delay(1000);
   
-  // 3. Pull SS HIGH to release the slave device
-  digitalWrite(SS, HIGH);
-  delay(1000); // Wait 1 second
-  
-  // 4. Repeat selection process to send data character '0'
-  digitalWrite(SS, LOW);
-  char signalOff = '0';
-  SPI.transfer(signalOff);
+  sendCharacter('0');
   Serial.println("Master Sent: 0 (Turn LED OFF)");
-  
-  digitalWrite(SS, HIGH);
-  delay(1000); // Wait 1 second
+  delay(1000);
 }
