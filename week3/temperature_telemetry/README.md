@@ -63,8 +63,16 @@ The TMP36 utilizes an internal solid-state temperature diode matrix that expands
 Once initialized, the microchip polls the physical A1 node every 1 second, converts the digitized raw value into its voltage equivalent, applies the specific calibration scaling matrix, and logs a clean string to the monitor terminal.
 
 ### Serial Logging Printouts
-```text
---- Precision Temperature Telemetry Logger Initialized ---
-Raw ADC Value: 153  |  Sensor Voltage: 0.747 V  |  Temperature: 24.7 °C
-Raw ADC Value: 154  |  Sensor Voltage: 0.752 V  |  Temperature: 25.2 °C
+text
+--- Precision Temperature Telemetry Logger Initialized ---\
+Raw ADC Value: 153  |  Sensor Voltage: 0.747 V  |  Temperature: 24.7 °C\
+Raw ADC Value: 154  |  Sensor Voltage: 0.752 V  |  Temperature: 25.2 °C\
 Raw ADC Value: 205  |  Sensor Voltage: 1.001 V  |  Temperature: 50.1 °C
+
+
+## Troubleshooting Tips
+Temperature Values Are Extremely Fluctuating or Erroneous
+If your Celsius calculations are completely off or swinging wildly, check your denominator values in your code math loop. Ensure you are explicitly dividing by a floating decimal literal value (1024.0 or 1023.0) rather than a plain integer 1024. Plain integer divisions will cut off decimal float fractions, breaking your accuracy.
+
+## Sensor Chip Overheating or Shorting Out
+On physical hardware, if the TMP36 gets extremely hot to the touch within a few seconds of plugging it in, your power lines are reversed! Double check your pin directions immediately—accidentally swapping the 5V and GND lines creates an immediate short circuit that can burn out the sensor cells.
