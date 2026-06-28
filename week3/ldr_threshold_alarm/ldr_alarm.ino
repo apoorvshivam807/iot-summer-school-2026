@@ -1,11 +1,3 @@
-/*******************************************************************************
- * File Name:    ldr_alarm.ino
- * Course:       IoT & Embedded Systems Program (IIT Jammu Summer School 2026)
- * Author:       Apoorv Shivam
- * Description:  Analog Light Sensor (LDR) interface with threshold tracking.
- * Triggers a piezo audio frequency pulse when ambient light drops below a 
- * critical configuration range.
- *******************************************************************************/
 
 const int LDR_PIN = A0;     // Analog input pin from voltage divider
 const int BUZZER_PIN = 9;   // PWM digital output pin driving the buzzer
