@@ -1,7 +1,7 @@
 const int ledr = 2;
 const int ledy = 3;
 const int ledg = 4;
-const int push = 13;
+const int push = 12;
 
 void setup()
 {
