@@ -3,6 +3,8 @@
 A responsive microcontroller application that utilizes an embedded GPIO pin configured with an internal pull-up resistor to monitor a physical push button state, triggering a continuous $250\text{ Hz}$ blinking cycle while held.
 
 ---
+## Student Details
+**Student Name:** Apoorv Shivam  
 
 ## 🛠️ Hardware Requirements
 
