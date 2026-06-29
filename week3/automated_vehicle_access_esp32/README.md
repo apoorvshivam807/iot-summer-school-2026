@@ -3,6 +3,8 @@
 An automated, smart vehicle barrier gate system built using an ESP32 microcontroller. The system operates on proximity telemetry, utilizing ultrasonic wave time-of-flight monitoring to actuate a servo-driven security gate and sound real-time auditory warnings when a vehicle approaches.
 
 ---
+## Student Details
+**Student Name:** Apoorv Shivam  
 
 ## 📌 Project Overview & Goals
 
