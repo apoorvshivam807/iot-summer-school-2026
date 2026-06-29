@@ -1,20 +1,4 @@
-***** Arduino IoT Cloud - 2.9.0 *****
-Device ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-MQTT Broker: iot.arduino.cc:0
-WiFi.status(): 255
-Connection to "iPhone" failed
-Retrying in  "4000" milliseconds
-WiFi.status(): 3
-Connected to "iPhone"
-ArduinoIoTCloudTCP::handle_ConnectMqttBroker could not connect to iot.arduino.cc:0 Error: -2
-ArduinoIoTCloudTCP::handle_ConnectMqttBroker could not connect to iot.arduino.cc:0 Error: -2
 
---- Reading DHT11 Sensor ---
---> Error: DHT sensor read failed. Check data pin 23.
-ArduinoIoTCloudTCP::handle_ConnectMqttBroker could not connect to iot.arduino.cc:0 Error: -2
-
---- Reading DHT11 Sensor ---
---> Error: DHT sensor read failed. Check data pin 23.
 Distance: 234.62 cm
 Distance: 234.67 cm
 Distance: 234.67 cm
