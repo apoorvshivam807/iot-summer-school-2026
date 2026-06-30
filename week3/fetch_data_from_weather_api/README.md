@@ -1,6 +1,11 @@
 # ESP32 Dual-Location Weather & Air Quality Monitor (Fetch data from weather API.)
 
 An IoT project built on the **ESP32** microcontroller that monitors environmental conditions across two distinct locations simultaneously:
+## Student Details
+**Student Name:** Apoorv Shivam  
+
+
+----
 
 1. **Delhi (Remote):** Weather metrics (Temperature, Humidity, Coordinates) and Air Quality Index (AQI) fetched via OpenWeatherMap API.
 2. **IIT Jammu (Local):** Real-time local Temperature and Humidity sourced directly from an on-board **DHT11 sensor**, combined with regional AQI and Coordinates via OpenWeatherMap API.
