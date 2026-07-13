@@ -2,6 +2,9 @@
 
 This project demonstrates how to control three LEDs (Red, Green, Blue) wirelessly from an Android phone using an HC-05 Bluetooth module and an Arduino. Commands are sent via a Bluetooth terminal app to turn individual LEDs on, turn them all off, or flash them in a sequence.
 
+## Student Details
+**Student Name:** Apoorv Shivam
+
 ## Directory Structure
 Ensure your code is uploaded to the correct directory:
 `/week4/bt_led_control/`
