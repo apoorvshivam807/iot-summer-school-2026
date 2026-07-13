@@ -39,6 +39,11 @@ This project demonstrates how to use an ESP32 to read temperature and humidity d
 | **GPIO 2 (D2)** | Anode (Long leg) | Positive terminal (via 220Ω or 330Ω resistor) |
 | **GND** | Cathode (Short leg)| Negative terminal (Ground) |
 
+## Screenshots:-
+<img width="1113" height="585" alt="Screenshot 2026-07-13 103252" src="https://github.com/user-attachments/assets/dc25f1d9-e899-45bf-986c-237642ee32ca" />
+<img width="1110" height="770" alt="Screenshot 2026-07-13 103300" src="https://github.com/user-attachments/assets/b19357e0-f9a6-4a20-8f20-7b497ba3ba59" />
+
+
 ## Software Requirements
 Install the following libraries via the Arduino IDE Library Manager:
 - **PubSubClient** by Nick O'Leary
