@@ -4,6 +4,9 @@ This project implements a lightweight web server on an ESP32 (or ESP8266) to mon
 
 ---
 
+## Student Details
+**Student Name:** Apoorv Shivam  
+
 ## 📌 Features
 
 *   **Real-Time Monitoring:** Reads temperature and humidity from a DHT22/DHT11 sensor.
@@ -25,6 +28,11 @@ This project implements a lightweight web server on an ESP32 (or ESP8266) to mon
 | **Red LED** | Cathode (Short Leg)| `GND` | Ground |
 
 ---
+
+## Screenshots:-
+<img width="580" height="412" alt="Screenshot 2026-07-13 110127" src="https://github.com/user-attachments/assets/d6c5c072-4499-448c-9eff-89d7d290486d" />
+<img width="1282" height="475" alt="Screenshot 2026-07-13 110812" src="https://github.com/user-attachments/assets/d6459034-2b80-4071-9e27-500d35674238" />
+
 
 ## ⚙️ How It Works
 
