@@ -3,6 +3,9 @@
 ## Overview
 This project demonstrates how to use an ESP32 to read temperature and humidity data from a DHT11/DHT22 sensor, format the readings as JSON objects with precise Unix timestamps, and publish them to a public MQTT broker (HiveMQ). Additionally, it subscribes to a control topic to remotely toggle an LED.
 
+## Student Details
+**Student Name:** Apoorv Shivam  
+
 ## Features
 - **Sensor Reading:** Accurately reads environmental data using a DHT11/DHT22 sensor.
 - **NTP Time Sync:** Fetches the current Unix timestamp from `pool.ntp.org` for accurate data logging.
