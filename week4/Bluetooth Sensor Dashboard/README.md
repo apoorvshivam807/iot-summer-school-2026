@@ -1,5 +1,8 @@
 # ESP32 BLE Sensor Dashboard
 
+## Student Details
+**Student Name:** Apoorv Shivam 
+
 ## Description
 
 This project broadcasts DHT11 sensor data over Bluetooth Low Energy (BLE)
