@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASCL-Apoorv Studio Code & Labs</title>
+  <style>
+    :root {
+      --bg: #e9ebef;
+      --card: #eceef3;
+      --text: #24313f;
+      --muted: #64748b;
+      --red: #ef4444;
+      --green: #22c55e;
+      --yellow: #facc15;
+      --blue: #3b82f6;
+      --shadow-out: 10px 10px 20px #c8ccd3, -10px -10px 20px #ffffff;
+      --shadow-in: inset 6px 6px 12px #cdd1d8, inset -6px -6px 12px #ffffff;
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .clay {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-out);
+    }
+
+    .header {
+      padding: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.8vw, 2rem);
+    }
+
+    .subtitle {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 0.7rem 1rem;
+      box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.12), -3px -3px 8px rgba(255, 255, 255, 0.7);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(0.99);
+      box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.15), inset -3px -3px 8px rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-blue { background: linear-gradient(145deg, #498efc, #2f75f1); }
+    .btn-red { background: linear-gradient(145deg, #f35f5f, #e63636); }
+
+    .summary {
+      padding: 1rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .summary-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .badge-row,
+    .lang-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 0.38rem 0.7rem;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.75);
+      color: #0f172a;
+    }
+
+    .badge.red { background: #fecaca; border: 1px solid #ef4444; }
+    .badge.green { background: #bbf7d0; border: 1px solid #22c55e; }
+    .badge.yellow { background: #fef08a; border: 1px solid #eab308; }
+    .badge.blue { background: #bfdbfe; border: 1px solid #3b82f6; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) 1fr;
+      gap: 1rem;
+      min-height: 70vh;
+    }
+
+    .panel {
+      padding: 0.9rem;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      box-shadow: var(--shadow-out);
+      min-height: 0;
+    }
+
+    .sidebar {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 0.8rem;
+    }
+
+    .search {
+      border: 0;
+      border-radius: var(--radius-md);
+      padding: 0.8rem 0.9rem;
+      background: var(--card);
+      box-shadow: var(--shadow-in);
+      color: var(--text);
+      width: 100%;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .search:focus {
+      box-shadow: var(--shadow-in), 0 0 0 2px rgba(59, 130, 246, 0.35);
+    }
+
+    .tree {
+      overflow: auto;
+      border-radius: var(--radius-md);
+      padding: 0.4rem;
+      box-shadow: var(--shadow-in);
+      background: #eff1f6;
+    }
+
+    .tree-node {
+      margin: 0.15rem 0;
+    }
+
+    .node-row {
+      border: 0;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      color: var(--text);
+      border-radius: var(--radius-sm);
+      padding: 0.35rem 0.45rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background 0.2s ease, transform 0.12s ease;
+      font-size: 0.9rem;
+    }
+
+    .node-row:hover {
+      background: rgba(59, 130, 246, 0.15);
+      transform: translateX(2px);
+    }
+
+    .node-row.active {
+      background: rgba(34, 197, 94, 0.2);
+      font-weight: 600;
+    }
+
+    .toggle {
+      width: 1rem;
+      color: #334155;
+      display: inline-flex;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    .indent {
+      display: inline-block;
+      width: 1rem;
+    }
+
+    .children {
+      margin-left: 0.8rem;
+      border-left: 1px dashed rgba(51, 65, 85, 0.25);
+      padding-left: 0.4rem;
+    }
+
+    .viewer {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 0.7rem;
+      min-height: 0;
+    }
+
+    .viewer-top {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-radius: var(--radius-md);
+      padding: 0.6rem 0.8rem;
+      box-shadow: var(--shadow-in);
+      background: #eff1f6;
+    }
+
+    .viewer-path {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      word-break: break-all;
+    }
+
+    .copy-btn {
+      border: 0;
+      background: linear-gradient(145deg, #4ade80, #22c55e);
+      color: #052e16;
+      border-radius: 999px;
+      font-weight: 700;
+      padding: 0.45rem 0.8rem;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.12), -3px -3px 8px rgba(255, 255, 255, 0.7);
+    }
+
+    .copy-btn:hover { transform: translateY(-1px); }
+    .copy-btn:active {
+      transform: translateY(1px);
+      box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.15), inset -3px -3px 8px rgba(255, 255, 255, 0.7);
+    }
+
+    .content-wrap {
+      min-height: 0;
+      overflow: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-in);
+      background: #f3f4f8;
+      padding: 0.65rem;
+    }
+
+    .state {
+      margin: 0;
+      color: var(--muted);
+      padding: 0.8rem;
+      border-radius: var(--radius-sm);
+      background: #eceff6;
+    }
+
+    .state.error {
+      color: #7f1d1d;
+      background: #fee2e2;
+      border: 1px solid #ef4444;
+    }
+
+    .code-view {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      white-space: pre;
+      min-width: max-content;
+    }
+
+    .line-numbers {
+      margin: 0;
+      padding: 0.6rem 0.55rem 0.6rem 0.35rem;
+      text-align: right;
+      color: #64748b;
+      user-select: none;
+      background: #e9edf6;
+      border-right: 1px solid #cfd5e0;
+    }
+
+    .code-block {
+      margin: 0;
+      padding: 0.6rem 0.7rem;
+      overflow: visible;
+      color: #0f172a;
+    }
+
+    .token-keyword { color: #1d4ed8; font-weight: 700; }
+    .token-string { color: #b45309; }
+    .token-comment { color: #64748b; font-style: italic; }
+    .token-number { color: #7c3aed; }
+
+    .image-preview {
+      max-width: 100%;
+      border-radius: var(--radius-md);
+      box-shadow: 8px 8px 16px #c5cad1, -8px -8px 16px #ffffff;
+      background: #fff;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        min-height: 320px;
+      }
+
+      .viewer {
+        min-height: 58vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header clay">
+      <div>
+        <h1 class="title">ASCL-Apoorv Studio Code &amp; Labs</h1>
+        <p class="subtitle">Interactive Code &amp; Lab Explorer</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-blue" href="https://github.com/apoorvshivam807" target="_blank" rel="noopener noreferrer">Follow on GitHub</a>
+        <a class="btn btn-red" href="#">Donate / Support</a>
+      </div>
+    </header>
+
+    <section class="summary clay" aria-live="polite">
+      <p class="summary-title">Repository Snapshot</p>
+      <div class="badge-row" id="summaryMeta"></div>
+      <div class="lang-row" id="summaryLang"></div>
+    </section>
+
+    <main class="layout">
+      <aside class="panel sidebar">
+        <input id="searchInput" class="search" type="search" placeholder="Search files and folders..." aria-label="Search files and folders" />
+        <div id="treeContainer" class="tree" role="tree" aria-label="Repository file tree"></div>
+      </aside>
+
+      <section class="panel viewer">
+        <div class="viewer-top">
+          <p id="viewerPath" class="viewer-path">Select a file from the tree to preview.</p>
+          <button id="copyButton" class="copy-btn" type="button" hidden>Copy Code</button>
+        </div>
+        <div id="viewerContent" class="content-wrap">
+          <p class="state">Waiting for file selection…</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const REPO_OWNER = "apoorvshivam807";
+    const REPO_NAME = "iot-summer-school-2026";
+    const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/trees`;
+    const RAW_BASE = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}`;
+    const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "gif", "svg", "webp"];
+
+    const state = {
+      activeBranch: "",
+      treeRoot: null,
+      allFiles: [],
+      selectedPath: "",
+      selectedContent: "",
+      expanded: new Set([""]),
+      search: ""
+    };
+
+    const treeContainer = document.getElementById("treeContainer");
+    const viewerPath = document.getElementById("viewerPath");
+    const viewerContent = document.getElementById("viewerContent");
+    const copyButton = document.getElementById("copyButton");
+    const searchInput = document.getElementById("searchInput");
+    const summaryMeta = document.getElementById("summaryMeta");
+    const summaryLang = document.getElementById("summaryLang");
+
+    function setTreeStatus(message, isError = false) {
+      treeContainer.innerHTML = `<p class="state${isError ? " error" : ""}">${escapeHtml(message)}</p>`;
+    }
+
+    function setViewerStatus(message, isError = false) {
+      viewerContent.innerHTML = `<p class="state${isError ? " error" : ""}">${escapeHtml(message)}</p>`;
+    }
+
+    function getExt(path) {
+      const parts = path.toLowerCase().split(".");
+      return parts.length > 1 ? parts.pop() : "";
+    }
+
+    function isImage(path) {
+      return IMAGE_EXTENSIONS.includes(getExt(path));
+    }
+
+    function getLanguage(path) {
+      const ext = getExt(path);
+      const map = {
+        js: "JavaScript", mjs: "JavaScript", cjs: "JavaScript",
+        ts: "TypeScript", py: "Python", md: "Markdown", txt: "Text",
+        html: "HTML", css: "CSS", json: "JSON", yml: "YAML", yaml: "YAML",
+        sh: "Shell", ino: "Arduino", cpp: "C++", c: "C", h: "C/C++ Header",
+        ipynb: "Notebook", csv: "CSV", xml: "XML", svg: "SVG"
+      };
+      return map[ext] || (ext ? ext.toUpperCase() : "Other");
+    }
+
+    function escapeHtml(value) {
+      return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    async function fetchTreeWithFallback() {
+      const branches = ["main", "master"];
+      let lastError = "";
+
+      for (const branch of branches) {
+        try {
+          const response = await fetch(`${API_BASE}/${branch}?recursive=1`);
+          if (!response.ok) {
+            lastError = `${branch}: ${response.status} ${response.statusText}`;
+            continue;
+          }
+          const data = await response.json();
+          if (!data.tree || !Array.isArray(data.tree)) {
+            lastError = `${branch}: invalid tree response`;
+            continue;
+          }
+          state.activeBranch = branch;
+          return data.tree;
+        } catch (error) {
+          lastError = `${branch}: ${error.message}`;
+        }
+      }
+
+      throw new Error(`Unable to fetch repository tree from main/master. Last error: ${lastError}`);
+    }
+
+    function buildTree(paths) {
+      const root = { name: "", path: "", kind: "folder", children: [] };
+      const nodes = new Map([["", root]]);
+
+      paths.forEach((fullPath) => {
+        const parts = fullPath.split("/");
+        let currentPath = "";
+
+        parts.forEach((part, index) => {
+          const parentPath = currentPath;
+          currentPath = currentPath ? `${currentPath}/${part}` : part;
+          const isLeaf = index === parts.length - 1;
+          const kind = isLeaf ? "file" : "folder";
+
+          if (!nodes.has(currentPath)) {
+            const node = { name: part, path: currentPath, kind, children: [] };
+            nodes.set(currentPath, node);
+            nodes.get(parentPath).children.push(node);
+          }
+        });
+      });
+
+      const sortRecursive = (node) => {
+        if (!node.children.length) return;
+        node.children.sort((a, b) => {
+          if (a.kind !== b.kind) return a.kind === "folder" ? -1 : 1;
+          return a.name.localeCompare(b.name);
+        });
+        node.children.forEach(sortRecursive);
+      };
+
+      sortRecursive(root);
+      return root;
+    }
+
+    function folderHasVisibleItems(node, query) {
+      if (!query) return true;
+      const q = query.toLowerCase();
+      if (node.path.toLowerCase().includes(q)) return true;
+      return node.children.some((child) => child.kind === "file"
+        ? child.path.toLowerCase().includes(q)
+        : folderHasVisibleItems(child, query));
+    }
+
+    function renderTreeNode(node, depth = 0) {
+      const query = state.search.trim().toLowerCase();
+      if (node.kind === "folder" && !folderHasVisibleItems(node, query)) {
+        return null;
+      }
+      if (node.kind === "file" && query && !node.path.toLowerCase().includes(query)) {
+        return null;
+      }
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "tree-node";
+
+      if (node.path !== "") {
+        const row = document.createElement("button");
+        row.className = "node-row";
+        if (state.selectedPath === node.path) row.classList.add("active");
+        row.setAttribute("role", "treeitem");
+        row.style.paddingLeft = `${0.45 + depth * 0.75}rem`;
+
+        if (node.kind === "folder") {
+          const expanded = state.expanded.has(node.path) || query;
+          const toggle = document.createElement("span");
+          toggle.className = "toggle";
+          toggle.textContent = expanded ? "▼" : "▶";
+
+          row.innerHTML = `<span class="toggle">${toggle.textContent}</span><span>📁</span><span>${escapeHtml(node.name)}</span>`;
+          row.addEventListener("click", () => {
+            if (state.expanded.has(node.path)) {
+              state.expanded.delete(node.path);
+            } else {
+              state.expanded.add(node.path);
+            }
+            renderTree();
+          });
+        } else {
+          row.innerHTML = `<span class="indent"></span><span>📄</span><span>${escapeHtml(node.name)}</span>`;
+          row.addEventListener("click", () => {
+            state.selectedPath = node.path;
+            renderTree();
+            loadFile(node.path);
+          });
+        }
+
+        wrapper.appendChild(row);
+      }
+
+      if (node.kind === "folder") {
+        const childrenWrap = document.createElement("div");
+        childrenWrap.className = "children";
+        const expanded = node.path === "" || state.expanded.has(node.path) || query;
+        childrenWrap.style.display = expanded ? "block" : "none";
+
+        for (const child of node.children) {
+          const childEl = renderTreeNode(child, depth + (node.path === "" ? 0 : 1));
+          if (childEl) childrenWrap.appendChild(childEl);
+        }
+
+        if (childrenWrap.children.length > 0) {
+          wrapper.appendChild(childrenWrap);
+        }
+      }
+
+      return wrapper;
+    }
+
+    function renderTree() {
+      treeContainer.innerHTML = "";
+      if (!state.treeRoot) {
+        setTreeStatus("Tree is not loaded yet.");
+        return;
+      }
+
+      const treeEl = renderTreeNode(state.treeRoot, 0);
+      if (!treeEl || !treeEl.querySelector(".node-row")) {
+        setTreeStatus("No matching files or folders.");
+        return;
+      }
+      treeContainer.appendChild(treeEl);
+    }
+
+    function highlightCode(content) {
+      let html = escapeHtml(content);
+
+      html = html.replace(/(\/\/.*$|#.*$)/gm, '<span class="token-comment">$1</span>');
+      html = html.replace(/("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')/g, '<span class="token-string">$1</span>');
+      html = html.replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="token-number">$1</span>');
+      html = html.replace(/\b(function|const|let|var|return|if|else|for|while|switch|case|break|continue|class|new|try|catch|finally|import|from|export|default|async|await|def|class|public|private|protected|void|int|float|double|true|false|null|None)\b/g, '<span class="token-keyword">$1</span>');
+
+      return html;
+    }
+
+    function renderCode(content) {
+      const lines = content.split("\n");
+      const lineNumbers = lines.map((_, index) => index + 1).join("\n");
+      const highlighted = highlightCode(content);
+
+      viewerContent.innerHTML = `
+        <div class="code-view">
+          <pre class="line-numbers">${lineNumbers}</pre>
+          <pre class="code-block">${highlighted}</pre>
+        </div>
+      `;
+    }
+
+    function renderImage(path) {
+      const rawUrl = `${RAW_BASE}/${state.activeBranch}/${path}`;
+      viewerContent.innerHTML = `<img class="image-preview" src="${rawUrl}" alt="Preview of ${escapeHtml(path)}" />`;
+    }
+
+    async function copyCurrentCode() {
+      if (!state.selectedContent) return;
+      try {
+        await navigator.clipboard.writeText(state.selectedContent);
+        copyButton.textContent = "Copied!";
+        setTimeout(() => {
+          copyButton.textContent = "Copy Code";
+        }, 1200);
+      } catch {
+        copyButton.textContent = "Copy failed";
+        setTimeout(() => {
+          copyButton.textContent = "Copy Code";
+        }, 1200);
+      }
+    }
+
+    async function loadFile(path) {
+      viewerPath.textContent = path;
+      copyButton.hidden = true;
+      state.selectedContent = "";
+
+      if (isImage(path)) {
+        setViewerStatus("Loading image preview...");
+        renderImage(path);
+        return;
+      }
+
+      setViewerStatus("Loading file content...");
+      const rawUrl = `${RAW_BASE}/${state.activeBranch}/${path}`;
+
+      try {
+        const response = await fetch(rawUrl);
+        if (!response.ok) {
+          throw new Error(`Unable to load file (${response.status} ${response.statusText})`);
+        }
+
+        const type = (response.headers.get("content-type") || "").toLowerCase();
+        const looksText = type.includes("text") || type.includes("json") || type.includes("javascript") || type.includes("xml") || type.includes("yaml") || type.includes("x-sh");
+        const text = await response.text();
+
+        if ((!looksText && text.length > 0 && /[\x00-\x08\x0E-\x1F]/.test(text)) || text.includes("\u0000")) {
+          throw new Error("This file appears to be binary/unsupported for text preview.");
+        }
+
+        state.selectedContent = text;
+        renderCode(text);
+        copyButton.hidden = false;
+      } catch (error) {
+        setViewerStatus(`Could not display file. ${error.message}`, true);
+      }
+    }
+
+    function renderSummary() {
+      const fileCount = state.allFiles.length;
+      const languageCount = new Map();
+
+      for (const filePath of state.allFiles) {
+        const lang = getLanguage(filePath);
+        languageCount.set(lang, (languageCount.get(lang) || 0) + 1);
+      }
+
+      const topLanguages = Array.from(languageCount.entries())
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8);
+
+      summaryMeta.innerHTML = `
+        <span class="badge red">Owner/Repo: ${escapeHtml(REPO_OWNER)}/${escapeHtml(REPO_NAME)}</span>
+        <span class="badge green">Active Branch: ${escapeHtml(state.activeBranch)}</span>
+        <span class="badge yellow">Total Files: ${fileCount}</span>
+        <span class="badge blue">Estimated Languages: ${languageCount.size}</span>
+      `;
+
+      const accent = ["red", "green", "yellow", "blue"];
+      summaryLang.innerHTML = topLanguages.length
+        ? topLanguages.map(([lang, count], idx) => `<span class="badge ${accent[idx % accent.length]}">${escapeHtml(lang)}: ${count}</span>`).join("")
+        : '<span class="badge blue">No files detected</span>';
+    }
+
+    async function initialize() {
+      setTreeStatus("Loading repository tree...");
+      setViewerStatus("Waiting for file selection…");
+
+      try {
+        const treeEntries = await fetchTreeWithFallback();
+        state.allFiles = treeEntries
+          .filter((item) => item.type === "blob")
+          .map((item) => item.path);
+
+        state.treeRoot = buildTree(state.allFiles);
+        renderSummary();
+        renderTree();
+      } catch (error) {
+        setTreeStatus(`Failed to fetch repository tree. ${error.message}`, true);
+        setViewerStatus("Unable to initialize explorer until tree data is loaded.", true);
+        summaryMeta.innerHTML = '<span class="badge red">Could not load repository metadata</span>';
+        summaryLang.innerHTML = '<span class="badge yellow">Language estimate unavailable</span>';
+      }
+    }
+
+    searchInput.addEventListener("input", (event) => {
+      state.search = event.target.value;
+      renderTree();
+    });
+
+    copyButton.addEventListener("click", copyCurrentCode);
+
+    initialize();
+  </script>
+</body>
+</html>
