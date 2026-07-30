@@ -1,51 +1,68 @@
-**Status:**   UPDATING ONGOING . Few more projects will be added to week 3 from 29 Jun to 4 July .
-------
-
-
-# ⏳ Week 3: 
+# Week 3:
 **Course:** IoT & Drones (IIT Jammu Summer School 2026)  
 **Student Name:** Apoorv Shivam  
-
 
 ---
 
 ## 📅 Weekly Overview
-The third week of the curriculum focuses on interfacing the physical world with digital logic via specialized sensors. The completed labs explore reading continuously variable analog inputs, implementing mathematical calibration models to convert raw electrical potentials into human-readable metrics ($^\circ\text{C}$), and measuring high-speed time-of-flight acoustic waves to implement localized ultrasonic radar telemetry.
-
-*This index directory page is currently being updated as additional advanced sensor integration projects are completed and finalized in the lab.*
+Week 3 focused on sensor-driven automation, analog-to-digital measurement, PWM control, ESP32-based interaction, and internet-connected telemetry. The projects in this week cover local sensing, wireless communication, and practical embedded system control workflows.
 
 ---
 
-## 📂 Completed Laboratory Subdirectories
+## 📂 Projects
 
-### 1. ☀️ Analog Light Sensing Alarm (`/ldr_threshold_alarm`)
-* **Project Type:** Continuous Analog Tracking & Automation
-* **Core Concepts:** 10-bit Analog-to-Digital Conversion (ADC), voltage dividers, ambient lux thresholds, and dynamic audio wave generation via `tone()`.
-* **System Execution:** Utilizes a photoresistor working in a 10kΩ voltage divider grid to sense room brightness. If light levels fall below a critical software safety boundary ($\le 400$), the Arduino automatically triggers a pulsing audio alert via a piezo buzzer.
+### 1. ☀️ LDR Threshold Alarm (`/ldr_threshold_alarm`)
+* **Project Type:** Analog Sensing & Alert Automation
+* **Core Concepts:** ADC input reading, threshold logic, buzzer signaling.
+* **System Execution:** Monitors ambient light and triggers an alarm when brightness drops below a configured threshold.
 
-### 2. 🌡️ Precision Temperature Monitoring (`/temperature_telemetry`)
-* **Project Type:** Linear Calibration & Semiconductor Telemetry
-* **Core Concepts:** Voltage scaling math, linear thermal offsets ($10\text{mV}/^\circ\text{C}$), and live floating-point formatting.
-* **System Execution:** Captures raw millivolt variations directly from a TMP36 semiconductor IC, converts the digitized steps back into true operating voltage values, applies a $-500\text{mV}$ offset calibration, and streams precise Celsius ($^\circ\text{C}$) telemetry data strings every second.
+### 2. 🌡️ Temperature Telemetry (`/temperature_telemetry`)
+* **Project Type:** Sensor Calibration & Data Logging
+* **Core Concepts:** TMP36 analog conversion, voltage-to-temperature mapping, serial telemetry.
+* **System Execution:** Reads temperature sensor voltage, converts to Celsius, and continuously prints values to Serial Monitor.
 
-### 🦇 3. Ultrasonic Sonar Range Finder (`/ultrasonic_range_finder`)
-* **Project Type:** High-Speed Time-of-Flight Radar Mapping
-* **Core Concepts:** Outbound microsecond trigger execution ($10\mu\text{s}$), inbound echo pulse duration measurements (`pulseIn`), acoustic flight constants ($0.0343\text{cm}/\mu\text{s}$), and boundary filtering.
-* **System Execution:** Fires a high-frequency $40\text{kHz}$ ultrasonic sound wave, monitors its round-trip time-of-flight bounce duration, and processes the raw microseconds into real-time obstacle distance calculations tracked in centimeters.
+### 3. 📏 Ultrasonic Range Finder (`/ultrasonic_range_finder`)
+* **Project Type:** Distance Measurement
+* **Core Concepts:** Trigger/echo pulse timing, `pulseIn()`, time-of-flight distance math.
+* **System Execution:** Measures object distance in centimeters using an HC-SR04 ultrasonic sensor.
+
+### 4. 🚧 Automated Vehicle Access (ESP32) (`/automated_vehicle_access_esp32`)
+* **Project Type:** Smart Access Control
+* **Core Concepts:** Ultrasonic detection, servo control, buzzer alerts, ESP32 GPIO.
+* **System Execution:** Detects vehicles near a barrier, opens/closes a servo gate, and provides audio indication.
+
+### 5. 🔘 ESP32 Push Button LED Blink (`/esp32_pushbt_led blink`)
+* **Project Type:** GPIO Input/Output Control
+* **Core Concepts:** `INPUT_PULLUP`, button state reading, timed LED blinking.
+* **System Execution:** Blinks an LED while a push button is pressed.
+
+### 6. ☁️ Weather API Data Fetch (ESP32) (`/fetch_data_from_weather_api`)
+* **Project Type:** IoT Cloud Integration
+* **Core Concepts:** Wi-Fi connectivity, REST API calls, JSON parsing, DHT11 integration.
+* **System Execution:** Fetches remote weather/AQI data and combines it with local sensor readings.
+
+### 7. 🌃 PWM Fading Night Light (`/pwm_fading_night_light`)
+* **Project Type:** PWM Lighting Control
+* **Core Concepts:** Pulse-width modulation, gradual brightness transitions.
+* **System Execution:** Implements smooth LED intensity fading suitable for night-light behavior.
+
+### 8. 🔦 Laser-LDR Communication (`/communication_using_help_of_laser_ldr`)
+* **Project Type:** Optical Signal Communication
+* **Core Concepts:** Light-based signaling, LDR input detection, digital decoding logic.
+* **System Execution:** Demonstrates data transfer using a laser source and an LDR receiver path.
 
 ---
 
-## 🔄 Upcoming Labs This Week
-The folder structure below is expanding dynamically to include:
-* **Advanced Multi-Sensor Arrays**
-* **Sensor Integration & Compound Conditional Logic Assignments**
+## 🚀 General Execution Framework
 
----
+### Running Modules in Simulation/IDE
+1. Open the target Week 3 project folder and copy the relevant `.ino` code file.
+2. Use Tinkercad or your local Arduino IDE/ESP32 setup depending on project hardware.
+3. Configure board and port settings, then compile and upload.
+4. Open Serial Monitor at the project's required baud rate to view runtime output.
 
-## 🚀 Simulation & Hardware Deployment Guide
-
-### Running Modules inside the Tinkercad Cloud Engine
-1. Open any targeted project subdirectory indexed above and navigate to its local `.ino` file source layer.
-2. Open your web simulator panel interface and change the block workspace option to **Text**.
-3. Replace the canvas starter text by pasting the source code block directly inside the panel window.
-4. Click **Start Simulation**, click on the virtual sensor package component to bring up its interactive slider/target bubble handle, and open the bottom Serial Monitor panel to observe live data conversions.
+### Flashing to Physical Hardware
+1. Connect the board (Arduino Uno or ESP32) using a USB data cable.
+2. In Arduino IDE, select the correct board under **Tools > Board**.
+3. Select the active COM/USB port under **Tools > Port**.
+4. Upload the sketch and validate behavior with connected sensors/actuators.
