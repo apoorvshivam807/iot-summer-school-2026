@@ -1,172 +1,93 @@
-## IoT & Drones-IIT JAMMU SUMMER SCHOOL 2026
-This repository contains my projects and code from the IoT & Drones Summer School Program at IIT Jammu (2026).
+# Apoorv Shivam — IoT & Drones Summer School 2026 Repository
 
+This is my complete project repository for the **IoT & Drones Summer School 2026 (IIT Jammu)**.  
+It documents my end-to-end journey from embedded basics to wireless IoT applications, including weekly labs, assignments, theory notes, and final project work.
 
 ## About Me
-My name is **Apoorv Shivam**.\
-I am an engineering student currently pursuing B.Tech in **Electronics and Communication Engineering (ECE)** \
-at **Shri Mata Vaishno Devi University (SMVDU)**\
-Katra, Jammu and Kashmir. 
+- **Name:** Apoorv Shivam
+- **Program:** B.Tech, Electronics and Communication Engineering (ECE)
+- **Institution:** Shri Mata Vaishno Devi University (SMVDU), Katra
 
----
+## Portfolio & Journey Overview
+Over 4 weeks, I built and documented practical projects across:
+- microcontroller fundamentals
+- sensor interfacing
+- communication protocols
+- low-power embedded design
+- wireless and cloud-connected IoT systems
 
-## Repository Overview
-Every project listed here features fully tested, working code along with clear circuit layouts that work perfectly on both real Arduino hardware and Tinkercad simulations.
+Detailed portfolio summary: [`/portfolio/README.md`](./portfolio/README.md)
 
----
+## Repository Structure
+| Path | Purpose |
+|---|---|
+| [`/week1`](./week1) | Embedded foundations (GPIO, matrix, LDR, analog logic) |
+| [`/week2`](./week2) | Protocols + architecture (I2C, SPI, UART, FSM, deep sleep, robotics) |
+| [`/week3`](./week3) | Sensor-driven and internet-connected IoT workflows |
+| [`/week4`](./week4) | Wireless IoT systems (Bluetooth, BLE, Wi-Fi dashboard, MQTT) |
+| [`/assignment`](./assignment) | Assignment submissions and design responses |
+| [`/Assignment 3`](./Assignment%203) | PDF-based advanced assignment set |
+| [`/theory`](./theory) | Conceptual and viva-oriented theory writeups |
+| [`/final_project`](./final_project) | Final project workspace |
+| [`/portfolio`](./portfolio) | Consolidated industry-facing portfolio summary |
 
-## 📂 Understanding the Repository Structure
-To navigate this portfolio easily, here is how my work is organized:
-* **Root Directory (`/`):** This main landing page acts as the central index and syllabus guide.
-* **Weekly Folders (`/week1`, `/week2`):** These hold the master summary reports for each specific week of the curriculum.
-* **Project Sub-folders (e.g., `/led_blink`, `/traffic_light`):** Inside each weekly folder, every assignment has its own dedicated directory containing the raw working source code (`.ino` file) and a detailed step-by-step project report (`README.md`).
+## Weekly Progress Summary
+| Week | Focus | Highlights |
+|---|---|---|
+| **Week 1** | Embedded foundations | LED control, LED matrix, sensor matrix logic, smart street light |
+| **Week 2** | Protocols + system design | Digital piano, ESP32 deep sleep, I2C LCD, reaction game, SPI/UART, traffic FSM, autonomous car |
+| **Week 3** | Sensor + IoT integration | LDR alarm, telemetry, ultrasonic measurement, ESP32 access control, weather API integration |
+| **Week 4** | Wireless IoT communication | Bluetooth control, BLE dashboard, Wi-Fi monitor, MQTT publisher/subscriber workflow |
 
----
+## Assignments Covered
+- **Assignment Set 1 (Q1–Q17):** [`/assignment/02-07-2026/Q1-Q17.md`](./assignment/02-07-2026/Q1-Q17.md)
+- **Assignment Set 3 (Q35–Q50):** [`/Assignment 3/IoT_Assignment_Questions.pdf`](./Assignment%203/IoT_Assignment_Questions.pdf)
 
-## Weekly Progress 
-----
-# Week 1: 
-**Course:** IoT & Drones(IIT Jammu Summer School 2026)  
-**Student Name:** Apoorv Shivam  
+These include architecture analysis, security considerations, protocol comparisons, and real-world IoT solution design.
 
----
+## Setup & Development Environment
 
-## 📅 Weekly Overview
-The first week of the program focused on setting up the core software foundations for the Arduino microcontroller platform, understanding digital output execution, designing dynamic multiplexed arrays, configuring basic analog sensor networks, and simulating multi-variable coordinate spaces. 
+### Hardware
+- Arduino Uno
+- ESP32 / ESP8266 boards
+- Breadboard, resistors, LEDs, buzzer, servo
+- Sensors (LDR, DHT11, ultrasonic, etc.)
 
----
+### Software & Platforms
+- Arduino IDE
+- Tinkercad (simulation)
+- Wokwi / Velxio (ESP32-focused simulation workflows)
+- Serial Monitor tools
+- MQTT broker/client tooling (for MQTT projects)
 
-## 📂 Laboratory Subdirectories
+### Common Library/Protocol Use
+- `DHT`
+- `PubSubClient`
+- `ArduinoJson`
+- `LiquidCrystal_I2C`
+- Protocols: UART, I2C, SPI, Bluetooth/BLE, Wi-Fi, MQTT, HTTP/REST
 
-### 1. 💡 LED Blink (`/led_blink`)
-* **Project Type:** Hardware Core Output
-* **Core Concepts:** Digital GPIO initialization, `pinMode()` declaration configurations, hardware current-limiting tracking, and fundamental processor delay blocks.
-* **System Execution:** Operates as a foundational diagnostic test, toggling a physical digital load state high and low at explicit $1\text{ second}$ operational intervals.
+## Programming Languages & Formats Used
+- **C/C++** (Arduino and ESP32 sketches)
+- **Markdown** (`README.md`, theory, assignments)
+- **Python** (utility scripting in repository)
 
-### 2. 🔠 5x5 LED Matrix Display (`/led_matrix_5x5`)
-* **Project Type:** Advanced Multiplexed Peripheral Layout
-* **Core Concepts:** Common-anode row matrix architectures, 2D font mapping arrays, rapid microsecond row scanning sweeps, and high-speed multi-pin coordination.
-* **System Execution:** Sequentially renders font characters A through Z via precise bitwise extractions from binary array data, incorporating microsecond state resets to prevent overlapping display artifacts.
+## How to Use This Repository
+1. Start from each weekly folder README for context.
+2. Open project subfolders to find code (`.ino`) and project-specific documentation.
+3. Use the assignment and theory folders for architecture/design learning.
+4. Refer to portfolio README for a concise recruiter-friendly summary.
 
-### 3. 🗺️ Sensor Matrix Logic Simulation (`/sensor_matrix_logic`)
-* **Project Type:** Core Computational Logic
-* **Core Concepts:** Multi-dimensional tracking layout spaces, multi-index loop parameters, conditional bracket indexing offsets, and serial terminal printing layout structures.
-* **System Execution:** Executes inside the processor setup envelope, printing a cleanly structured 4x3 multi-node IoT sensor array coordinate layout pattern down to the serial data bus monitor once upon initialization.
+## License
+This project is licensed under the **MIT License**.  
+See [`LICENSE.md`](./LICENSE.md) for full text.
 
-### 4. 🌙 Smart Street Light Controller (`/smart_street_light`)
-* **Project Type:** Analog Sensor Threshold Automation
-* **Core Concepts:** Photoresistor (LDR) sensor voltage divider networks, continuous analog stream polling (`analogRead`), real-time serial logging arrays, and hardware automated threshold triggers.
-* **System Execution:** Samples ambient environmental lux changes. When local readings fall below or equal a constant threshold variable ($\le 300$), the processor triggers an automation pin to power an LED street light source.
+## Fair Use Policy
+- This repository is shared for learning, academic reference, and portfolio review.
+- You may reuse code under MIT License terms with proper attribution.
+- Do not misrepresent this work as your original submission in academic settings.
+- For institutional or public showcase use, keep attribution to the original author.
 
----
-
-## 🛠️ Hardware Stack & Circuit Layout Fundamentals
-
-### Power Distribution
-Every circuit this week links standard $5\text{V}$ and $\text{GND}$ output bus channels directly from the Arduino microcontroller board down across the primary breadboard common power rails.
-
-### Component Implementations
-* **Resistors:** Clean $220\,\Omega$ resistance configurations protect individual LED junctions against catastrophic thermal failures. Fixed $10\text{k}\Omega$ resistors act as pull-down elements in voltage divider sensor sub-circuits to avoid floating pin reads.
-* **Sensors:** Cadmium-sulfide photoresistors vary their raw internal resistance parameters based on changing external lux concentrations, creating a shifting output voltage mapped by the internal Analog-to-Digital Converter (ADC).
-
----
-
-## 🚀 General Execution Blueprint
-
-### Running the Code in Tinkercad
-1. Navigate inside any target sub-module folder above and copy the localized `.ino` hardware file text code.
-2. Launch your web workspace, select the circuit module, and paste the code inside the Text Editor section.
-3. Tap **Start Simulation** and click open the bottom **Serial Monitor** tab to monitor structural telemetry frames.
-
-### Flashing Code to Desktop Hardware
-1. Establish a secure interface line between your physical Arduino board and your laptop using an appropriate USB cable.
-2. Launch the Arduino IDE desktop client and populate a empty project container sketch with the target source module.
-3. Access **Tools** to set your board definition to **Arduino Uno** and configure your active tracking interface **COM Port**.
-4. Press **Verify/Compile** to clear syntax errors, then click **Upload** to write the binary image to the microcontroller's flash memory.
-
----
-
-# Week 2:
-
----
-
-## 📅 Weekly Overview
-The second week of the curriculum shifted focus from core digital/analog primitives to advanced software architecture patterns, low-power processing frameworks, hardware protocol implementations ($I^2C$, $SPI$), and maximizing hardware resource interfaces. The exercises focused on designing interactive loops, asynchronous event listening, state-machine tracking, and dual-node distributed tasks.
-
----
-
-## 📂 Projects
-
-### 1. 🎹 Digital Piano (`/digital_piano`)
-* **Project Type:** Interactive Audio Processing
-* **Core Concepts:** Multi-button array interaction pooling, dynamic tone generation, frequency mapping vectors, and active buzzer hardware driving.
-* **System Execution:** Scans a series of button inputs, outputting dedicated audio frequency pulse waveforms directly to a piezo transducer element when pressed.
-
-### 2. 💤 ESP32 Deep Sleep (`/esp32_deep_sleep`)
-* **Project Type:** Advanced Low-Power Management
-* **Core Concepts:** Hardware sleep timers, power rail shutdown profiles, and state preservation utilizing non-volatile `RTC_DATA_ATTR` memory blocks.
-* **System Execution:** Developed inside the Velxio platform. Configures a 5-second sleep timer wakeup source, spinning down core execution arrays while securely incrementing a boot count variable inside fast RTC memory registers across reboots.
-
-### 3. 📺 I2C LCD Interfacing (`/i2c_lcd_display`)
-* **Project Type:** Synchronous Bus Peripheral Control
-* **Core Concepts:** Inter-Integrated Circuit ($I^2C$) serial protocol, 2-wire data lines ($SDA$/$SCL$), device hexadecimal address configuration, and character liquid crystal rendering.
-* **System Execution:** Routes strings cleanly over a shared 2-wire serial line to print string configurations on a $16 \times 2$ character visual panel without consuming standard digital pin lanes.
-
-### 4. ⚡ Reaction Time Game (`/reaction_game`)
-* **Project Type:** Interactive Time & State Pacing
-* **Core Concepts:** Floating analog entropy tracking via open pin `A0`, random range math configurations, active button polling loops, and millisecond time delta calculations (`millis()`).
-* **System Execution:** Flashes an erratic multi-LED sequence for random periods to introduce chaos, fires an instantaneous green signal light, and calculates the exact millisecond delta time it takes for a player to strike an input switch.
-
-### 5. 💻 Serial Interface Controller (`/serial_interface`)
-* **Project Type:** Interactive String Stream Parsing
-* **Core Concepts:** Non-blocking hardware serial buffer checks (`Serial.available`), string accumulation, case-insensitive comparison engines, and terminal state toggling.
-* **System Execution:** Polls incoming character arrays over the serial monitor line, parsing user input commands like `ON` or `OFF` to explicitly manipulate a discrete hardware asset.
-
-### 6. 👑 SPI Master-Slave Communication (`/spi_master_slave`)
-* **Project Type:** Synchronous Serial Bus Architecture
-* **Core Concepts:** Software Bit-Banging, Master Out Slave In ($MOSI$), Serial Clock ($SCK$), Slave Select ($SS$), and multi-node bit alignment tracking.
-* **System Execution:** Manually clocks 8-bit character data paths across individual digital lines to bypass web simulator register limitations, allowing a Master board to explicitly blink a target LED sitting on a completely separate Slave board.
-
-### 🚦 7. Smart Traffic Light Intersection (`/traffic_light`)
-* **Project Type:** Finite State Machine Automation
-* **Core Concepts:** State machine architectures, rigid condition phase timing, sequential timing logic, and structural safety transition intervals.
-* **System Execution:** Executes an automated traffic management pattern, routing cross-way lane delays sequentially across Red, Yellow, and Green paths.
-
-### 🔌 8. Point-to-Point UART Direct Signaling (`/uart`)
-* **Project Type:** Core Point-to-Point Signaling
-* **Core Concepts:** Common ground reference balancing, unmodulated single-wire lines, and raw asynchronous input-to-output mirroring loops.
-* **System Execution:** Links two Arduinos via a single wire hookup from Pin 3 to Pin 2, allowing a Master button press to mirror logic states instantly across to a Slave indicator light.
-
-### 🏎️ 9. Pin-Maximized Self-Driving Car (`/utilize_all_the_pins_of_arduino_uno`)
-* **Project Type:** Full Scale Resource Maximization & Robotics
-* **Core Concepts:** Reallocating analog inputs (`A0`–`A1`) as digital GPIO paths, Software Serial cross-chatter, servo steering mechanics, PWM motor control driving, and 4-way ultrasonic sonar grid matrix processing.
-* **System Execution:** Employs 100% of the main Arduino board's I/O pins to guide an autonomous rover around obstacles, while packaging and pushing real-time direction metadata letters down to a secondary display microcontroller chip.
-
----
-
-## 🛠️ Unified Hardware Protocol Summary
-
-| Protocol Name | Wire Count | Max Relative Speed | Multi-Device Support? | Key Application This Week |
-| :--- | :--- | :--- | :--- | :--- |
-| **Direct Signaling** | $1 \text{ Data Wire } + \text{GND}$ | Low Speed (1-bit state) | No (Point-to-Point only) | Single-button relay transmission |
-| **I2C ($SDA$/$SCL$)**| $2 \text{ Data Wires } + \text{GND}$ | Standard (100kHz - 400kHz) | Yes (Using Hex addresses) | Interfacing $16\times2$ Character Display LCD panels |
-| **SPI (Bit-Banged)** | $4 \text{ Data Wires } + \text{GND}$ | High Speed (Synchronous) | Yes (Using Slave Select lines)| Dual-Arduino synchronized command busing |
-
----
-
-## 🚀 General Execution Framework
-
-### Running the Sub-Modules inside Tinkercad / Velxio
-1. Open any specific project subdirectory indexed above and copy its localized `.ino` firmware code.
-2. Open your web simulator environment (**Tinkercad** for Arduino Uno layouts, **Velxio** for the ESP32 Deep Sleep lab).
-3. Paste the code into the text editing workspace. For dual-board networks (SPI, UART, Car), ensure the code for the Master and Slave matches the respective target microcontrollers on screen.
-4. Click **Start Simulation** and open the bottom data terminal configurations to evaluate real-time tracking streams.
-
-### Flashing Code to Physical Desktop Microcontrollers
-1. Hook up your target microcontroller to your laptop computer using an appropriate USB communication cable.
-2. Launch the desktop **Arduino IDE** program and paste the target folder's code directly inside an empty sketch window canvas.
-3. Access **Tools > Board** to choose either **Arduino Uno** or the matching **ESP32 Dev Module** hardware signature.
-4. Access **Tools > Port** to assign the active tracking **COM Port** location.
-5. If a script depends on specialized external libraries (such as `LiquidCrystal_I2C` or `Adafruit_LiquidCrystal`), open the Library Manager (**Ctrl+Shift+I**) to search and download those additions before compilation.
-6. Press **Verify/Compile** to clear any syntax bugs, then hit **Upload** to write the compiled image to the microcontroller's flash storage memory.
-----------
+## Contact & Portfolio
+- **Author:** Apoorv Shivam
+- **Portfolio Summary:** [`/portfolio/README.md`](./portfolio/README.md)
