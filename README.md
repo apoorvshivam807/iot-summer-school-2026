@@ -1,382 +1,392 @@
-# IoT & Drones Summer School 2026 — Complete Journey Repository
+# Apoorv Shivam — IoT & Drones Summer School 2026 Repository
 
-This repository documents my complete learning and project journey during the **IoT & Drones Summer School 2026 (IIT Jammu)**.  
-It includes weekly hands-on implementations, theory work, assignments, simulation and hardware setup practices, and final project preparation.
+This repository documents my complete technical journey from embedded system basics to advanced IoT and drone-domain understanding during the IoT & Drones Summer School 2026.  
+It combines weekly practical implementations, assignment analysis, theory preparation, and final project development in a structured and portfolio-friendly format.
 
 ---
 
-## 1) About Me
+## About Me
 
 - **Name:** Apoorv Shivam  
-- **Program:** B.Tech (Electronics and Communication Engineering)  
+- **Program:** B.Tech, Electronics and Communication Engineering (ECE)  
 - **Institution:** Shri Mata Vaishno Devi University (SMVDU), Katra, Jammu & Kashmir  
-- **Track:** Embedded Systems + IoT + Wireless Communication + Cloud Integration  
+
+I use this repository as both an academic record and a professional portfolio to showcase practical engineering growth.  
+The focus areas include microcontrollers, IoT communication protocols, wireless integration, automation logic, and system-level design thinking.
 
 ---
 
-## 2) Repository Purpose
+## Repository Purpose
 
-This is not just a code dump — it is a complete portfolio-style academic + practical record showing:
-
-- foundational Arduino/ESP work
-- sensor and actuator interfacing
-- communication protocols (UART, I2C, SPI, BLE, Wi-Fi, MQTT, HTTP)
-- low-power and real-time logic
-- applied IoT architecture thinking
-- assignments with design-level and security-level analysis
+This repository is designed to help students, mentors, and recruiters quickly understand what I built, how I built it, and why each project matters.  
+It is organized to provide clear navigation from beginner-level experiments to integrated real-world IoT and conservation-oriented final solutions.
 
 ---
 
-## 3) Full Repository Structure
+## Complete Repository Structure (All Root Folders/Files)
 
-- `week1/` → Embedded basics and first hardware logic
-- `week2/` → Communication protocols + architecture-heavy systems
-- `week3/` → Sensor-driven automation + API-connected IoT
-- `week4/` → Wireless IoT systems and cloud messaging workflows
-- `assignment/` → Question-wise written assignment submissions
-- `Assignment 3/` → Advanced assignment PDF set
-- `theory/` → Concept notes (Git, IoT layers, MCU/MPU, calibration, etc.)
-- `final_project/` → Final project workspace
-- `portfolio/` → Consolidated portfolio summary
-- `LICENSE.md` → MIT License
+### Root Files
+- `.gitignore`
+- `LICENSE.md`
+- `README.md`
+- `count_sketches.py`
 
----
+### Root Folders
+- `.github`
+- `Assignment 3`
+- `Drone Assignment`
+- `assignment`
+- `final_project`
+- `portfolio`
+- `theory`
+- `week1`
+- `week2`
+- `week3`
+- `week4`
 
-## 4) Detailed Weekly Journey
-
-## Week 1 — Embedded Foundations
-
-### Focus
-Week 1 built my fundamentals in Arduino setup, digital output control, matrix logic, and analog sensing.
-
-### Projects Completed
-
-1. **LED Blink**  
-   - Learned `pinMode()`, `digitalWrite()`, `delay()`  
-   - Built first reliable hardware output cycle using LED and resistor
-
-2. **5x5 LED Matrix Display**  
-   - Implemented row-column multiplexing  
-   - Practiced pattern mapping and refresh logic for character rendering
-
-3. **Sensor Matrix Logic Simulation**  
-   - Developed multi-dimensional logical mapping  
-   - Printed structured matrix-based sensor coordinate outputs via Serial Monitor
-
-4. **Smart Street Light (LDR)**  
-   - Built analog threshold automation with LDR  
-   - Read analog values using ADC and controlled LED as automatic street light
-
-### Skills Built in Week 1
-- Basic circuit wiring confidence  
-- Power rail usage (`5V`, `GND`)  
-- Resistor selection and safe current-limiting  
-- Intro to analog input and threshold decision-making  
+This structure separates practical code, theoretical learning, assignment submissions, and final integrated project content.  
+It allows anyone reviewing the repository to move from weekly labs to deeper design and analysis work without confusion.
 
 ---
 
-## Week 2 — Protocols and System Design
+## Weekly Journey and Project Analysis
 
-### Focus
-Week 2 moved from basic IO to interaction systems, protocol communication, state machines, and low-power embedded design.
+## Week 1 (`/week1`)
 
-### Projects Completed
+### Files/Folders
+- `README.md`
+- `led_blink`
+- `led_matrix_5x5`
+- `sensor_matrix_logic`
+- `smart_street_light`
 
-1. **Digital Piano**  
-   - Multi-button input scanning  
-   - Tone generation with buzzer
+Week 1 built my core hardware-software foundation in Arduino by focusing on digital output, matrix control, and analog sensing logic.  
+The projects in this week helped me establish reliable coding discipline, circuit setup confidence, and first-level automation understanding.
 
-2. **ESP32 Deep Sleep**  
-   - Power optimization using sleep cycles  
-   - RTC memory-based boot persistence (`RTC_DATA_ATTR`)
+### Project Analysis
 
-3. **I2C LCD Display**  
-   - Two-wire protocol communication (SDA/SCL)  
-   - Character display output on 16x2 LCD via I2C interface
+#### 1) `led_blink`
+I implemented basic GPIO output control by toggling an LED with timed delays to validate board configuration and upload flow.  
+This project established confidence in pin configuration, debugging, and the minimum reliable structure of embedded sketches.
 
-4. **Reaction Time Game**  
-   - Randomized delays and user response timing  
-   - Measured reaction latency using `millis()`
+#### 2) `led_matrix_5x5`
+I applied multiplexing concepts to control a matrix display and generate structured visual patterns.  
+This improved my understanding of coordinated row-column scanning and timing-sensitive multi-pin control.
 
-5. **Serial Interface Controller**  
-   - String command parsing from serial input  
-   - Controlled hardware states using text commands (`ON` / `OFF`)
+#### 3) `sensor_matrix_logic`
+I created matrix-based logical representation of sensor positions and printed organized coordinate data over serial output.  
+This strengthened my loop structuring and mapping ability between physical layouts and code-driven data models.
 
-6. **SPI Master-Slave Communication**  
-   - Implemented master-slave signaling  
-   - Understood MOSI, SCK, SS coordination and synchronous transfer logic
-
-7. **Traffic Light Controller (FSM)**  
-   - Built finite-state machine based sequence control  
-   - Modeled real traffic timing transitions (Red/Yellow/Green)
-
-8. **UART Direct Signaling**  
-   - Point-to-point serial communication across two boards  
-   - Shared ground and digital line synchronization
-
-9. **Pin-Maximized Autonomous Vehicle**  
-   - Used nearly full Arduino pin capacity  
-   - Combined ultrasonic sensing, movement logic, and multi-node signaling
-
-### Skills Built in Week 2
-- Protocol understanding: UART, I2C, SPI  
-- Finite-state and event-driven logic  
-- Low-power embedded behavior on ESP32  
-- Multi-device coordination strategies  
+#### 4) `smart_street_light`
+I built an LDR-based threshold system that automatically controls lighting based on ambient brightness.  
+This gave me practical experience with analogRead workflows, threshold calibration, and basic smart-environment automation.
 
 ---
 
-## Week 3 — Sensor-Driven and Internet-Connected IoT
+## Week 2 (`/week2`)
 
-### Focus
-Week 3 centered on real-time sensor measurement, control systems, and external data integration.
+### Files/Folders
+- `README.md`
+- `Assignment`
+- `digital_piano`
+- `esp32_deep_sleep`
+- `i2c_lcd_display`
+- `reaction_game`
+- `serial_interface`
+- `spi_master_slave`
+- `traffic_light`
+- `uart`
+- `utilize_all_the_pins_of_arduino_uno`
 
-### Projects Completed
+Week 2 expanded from beginner tasks to protocol-heavy and architecture-driven implementations using Arduino and ESP32.  
+It combined interaction systems, communication buses, state-based control, and power-aware embedded design.
 
-1. **LDR Threshold Alarm**  
-   - Light-level monitoring  
-   - Triggered buzzer-based alerts on threshold breach
+### Project Analysis
 
-2. **Temperature Telemetry**  
-   - Sensor-value conversion and data logging  
-   - Continuous serial telemetry streaming
+#### 1) `digital_piano`
+I mapped button inputs to buzzer frequencies to create an interactive mini musical interface.  
+This improved my event-to-output mapping skills and confidence in handling multiple digital inputs cleanly.
 
-3. **Ultrasonic Range Finder**  
-   - Distance measurement using pulse timing  
-   - Time-of-flight calculation for object detection
+#### 2) `esp32_deep_sleep`
+I implemented deep sleep mode and state persistence using RTC-backed memory across wake cycles.  
+This strengthened my understanding of low-power operation, which is critical for long-duration battery-powered IoT nodes.
 
-4. **Automated Vehicle Access (ESP32)**  
-   - Barrier/gate automation with servo  
-   - Detection + alert + actuator workflow integration
+#### 3) `i2c_lcd_display`
+I integrated a 16x2 LCD via I2C to display data using fewer wires and shared serial communication lines.  
+This project helped me understand address-based bus communication and efficient pin usage in embedded designs.
 
-5. **ESP32 Push Button LED Blink**  
-   - Input pull-up handling  
-   - Conditional LED behavior tied to switch input
+#### 4) `reaction_game`
+I created randomized signal timing and measured user response speed using millisecond-based logic.  
+This improved my control over event timing, pseudo-random behavior, and user-interactive embedded workflows.
 
-6. **Weather API Data Fetch (ESP32)**  
-   - Wi-Fi connectivity and HTTP data retrieval  
-   - Combined local sensor data with remote weather/AQI response
+#### 5) `serial_interface`
+I implemented command-based control from Serial Monitor, parsing text inputs like ON/OFF to switch outputs.  
+This project developed my parsing logic and practical command-driven control loop design.
 
-7. **PWM Fading Night Light**  
-   - Smooth LED intensity transitions  
-   - Practical PWM behavior control
+#### 6) `spi_master_slave`
+I worked on synchronized SPI-style transfer between master and slave logic to trigger remote output behavior.  
+This improved my protocol-level understanding of clocked communication and deterministic data exchange.
 
-8. **Laser-LDR Communication**  
-   - Optical signaling concept  
-   - Receiver-side signal interpretation via LDR
+#### 7) `traffic_light`
+I designed a finite-state-machine traffic sequence with structured transitions and safe timing order.  
+This strengthened my state modeling skills for deterministic real-world automation systems.
 
-### Skills Built in Week 3
-- Sensor telemetry formatting  
-- Hybrid local + cloud data thinking  
-- ESP32-based automation workflows  
-- PWM and measurement-based control loops  
+#### 8) `uart`
+I built direct point-to-point serial signaling between two boards with shared reference ground.  
+This clarified asynchronous communication behavior and practical serial link setup fundamentals.
 
----
-
-## Week 4 — Wireless IoT and Cloud Messaging
-
-### Focus
-Week 4 focused on wireless device control, dashboard interfaces, and message-broker architecture.
-
-### Projects Completed
-
-1. **Bluetooth LED Controller**  
-   - HC-05 command-based control  
-   - Wireless RGB/LED actuation from mobile interface
-
-2. **BLE Sensor Dashboard**  
-   - GATT service/characteristic concepts  
-   - BLE telemetry broadcast (temperature, humidity, uptime)
-
-3. **Wi-Fi Temperature Monitor + LED Control**  
-   - ESP32 web server hosting  
-   - Browser-driven monitoring and remote LED control actions
-
-4. **MQTT Sensor Publisher + LED Controller**  
-   - Publish/subscribe topic design  
-   - JSON payload telemetry + command listener model
-
-### Skills Built in Week 4
-- Bluetooth and BLE architecture basics  
-- Web-based embedded UI exposure  
-- MQTT-based scalable IoT messaging  
-- Cloud-ready telemetry and remote control patterns  
-
----
-## Final Project Overview
-
-### IoT-Based Advanced Wildlife Monitoring and Anti-Poaching System
-**(Non-Intrusive Remote Tracking & Microclimate Sensing for Conservation)**
-
-
-**Mentor:** Majid Majeed Sir
-
-### Project Objective
-This project builds an integrated IoT monitoring platform for wildlife and forest protection.  
-The system combines motion detection, environmental sensing, location capture, and wireless telemetry to provide real-time remote monitoring for conservation teams.
-
-### Problem Statement
-The project addresses key field challenges:
-- **Human-wildlife conflict** in settlement-border zones
-- **Delayed forest fire detection** causing ecological loss
-- **Poaching risk** in remote regions with low surveillance
-- **No reliable power grid** in deep-forest deployment areas
-- **Unstable high-bandwidth connectivity** under dense canopy
-
-### Proposed SYVIX Solution
-- **Smart IoT edge nodes** for local sensing and processing
-- **Event-triggered architecture** with deep-sleep operation for battery efficiency
-- **ESP32-CAM image capture** on sensor trigger
-- **Microclimate + location telemetry** using DHT and GPS
-- **Wireless uplink** via Wi-Fi / LoRa / GSM
-- **AI-assisted analysis** (YOLOv8-based threat classification pipeline)
-- **Central dashboard** for live alerts, logs, and node status
-
-### High-Level System Architecture
-1. **Edge Layer:** Sensor-equipped IoT nodes collect and preprocess data locally  
-2. **Communication Layer:** Multi-protocol transmission (Wi-Fi/LoRa/GSM)  
-3. **Cloud Layer:** Data aggregation, analytics, model serving, and storage  
-4. **Application Layer:** Dashboard for alerts, history, and operational decisions  
-
-### System Execution Pipeline
-1. Node stays in **Deep Sleep** for power saving  
-2. **PIR/Flame trigger** wakes the controller  
-3. System reads sensors and captures camera frame  
-4. Telemetry + image payload is transmitted to server  
-5. AI model classifies potential human/wildlife/threat activity  
-6. Dashboard logs events and raises alerts for response teams  
-
-### Hardware Components Used
-- **ESP32-CAM** (Wi-Fi + OV2640 camera)
-- **PIR Sensor** (HC-SR501)
-- **Flame Sensor**
-- **DHT11/DHT22** (temperature/humidity)
-- **GSM / LoRa communication module**
-- **Li-ion battery pack**
-- **SG90 servo motor**
-
-### Why IoT in This Project
-IoT enables continuous, remote, and low-maintenance monitoring in locations where human patrol and fixed infrastructure are difficult.  
-By connecting sensors, controller logic, communication modules, and cloud dashboards, the system supports faster detection, better evidence capture, and improved wildlife protection response.
-
-### Current Development Status
-The **Wildlife Sentry Core (SYVIX Technology)** is currently under development with:
-- Telemetry and location capture
-- Live system logging
-- Secure data vault integration
-- AI-enabled safe-state monitoring (YOLOv8 pipeline)
-- Real-time node health tracking (last sync, temperature, humidity)
-
-### Final Project Folder
-`/final_project`
-
-## 5) Assignments and Academic Coverage
-
-## Assignment Set 1 (Q1–Q17)
-This set covered:
-- Arduino vs ESP32 platform selection
-- IoT communication trade-offs
-- interrupt vs polling design
-- OTA and reliability logic
-- protocol choice by use-case
-- embedded architecture decision-making
-
-## Assignment Set 3 (Q35–Q50)
-This advanced set covered:
-- weather API and practical IoT integration
-- MQTT fundamentals and QoS implications
-- IoT Wi-Fi security and vulnerabilities
-- solution designs in smart home, agriculture, flood alert, healthcare, access control
-- smart city proposal direction and system thinking
+#### 9) `utilize_all_the_pins_of_arduino_uno`
+I developed a high-resource integrated project that used nearly all available Uno pins for sensing and actuation.  
+This improved system planning under hardware constraints and taught scalable pin-allocation strategy.
 
 ---
 
-## 6) Theory Work Included
+## Week 3 (`/week3`)
 
-The theory section includes conceptual understanding of:
-- `git pull` vs `git fetch` vs `git clone`
-- `.gitignore` usage
-- IoT layered architecture
-- MCU vs MPU
-- Arduino pin functionalities
-- analog read vs PWM write
-- `setup()` / `loop()` behavior and non-blocking logic
-- sensor calibration principles
-- I2C workflow and addressing
+### Files/Folders
+- `README.md`
+- `automated_vehicle_access_esp32`
+- `communication_using_help_of_laser_ldr`
+- `esp32_pushbt_led blink`
+- `fetch_data_from_weather_api`
+- `ldr_threshold_alarm`
+- `pwm_fading_night_light`
+- `temperature_telemetry`
+- `ultrasonic_range_finder`
+
+Week 3 focused on sensor-centered intelligence and internet-connected behavior using ESP32 and mixed local/cloud data flows.  
+This week bridged core embedded control with practical IoT telemetry and automation pipelines.
+
+### Project Analysis
+
+#### 1) `ldr_threshold_alarm`
+I implemented light-intensity monitoring with threshold-triggered alert output behavior.  
+This sharpened my analog decision-making logic and event-triggered alarm design skills.
+
+#### 2) `temperature_telemetry`
+I captured analog temperature readings, converted values, and streamed telemetry output continuously.  
+This improved my sensor conversion confidence and consistency in serial data reporting.
+
+#### 3) `ultrasonic_range_finder`
+I measured distance using trigger/echo pulse timing and time-of-flight calculations.  
+This taught me practical precision handling in real-time sensing loops.
+
+#### 4) `automated_vehicle_access_esp32`
+I integrated detection logic with actuator response to simulate automated access barrier behavior.  
+This project strengthened my ability to connect sensing, decision logic, and controlled mechanical output.
+
+#### 5) `esp32_pushbt_led blink`
+I created button-controlled LED behavior with input pull-up based logic handling.  
+This reinforced robust input processing and stable conditional execution flow.
+
+#### 6) `fetch_data_from_weather_api`
+I combined remote weather/AQI API data with local sensor readings in one IoT workflow.  
+This improved my integration skills across networking, data parsing, and edge-cloud correlation.
+
+#### 7) `pwm_fading_night_light`
+I implemented smooth LED fade transitions using PWM duty-cycle control.  
+This deepened my understanding of analog-style output modulation and user-friendly lighting behavior.
+
+#### 8) `communication_using_help_of_laser_ldr`
+I demonstrated optical signaling by transmitting light pulses and reading them through LDR response changes.  
+This expanded my exposure to non-traditional communication methods and signal interpretation logic.
 
 ---
 
-## 7) Setup and Execution Environment
+## Week 4 (`/week4`)
 
-## Hardware Used
+### Files/Folders
+- `README.md`
+- ` Bluetooth LED Controller`
+- `Bluetooth Sensor Dashboard`
+- `MQTT Sensor Publisher`
+- `Wi-Fi Temperature Monitor `
+
+Week 4 advanced into wireless IoT systems with remote control, telemetry dashboards, and broker-based messaging architecture.  
+The projects here represent practical transition from local embedded prototypes to connected smart-system deployments.
+
+### Project Analysis
+
+#### 1) ` Bluetooth LED Controller`
+I implemented phone-to-controller Bluetooth command handling to manage LED behavior wirelessly.  
+This project improved my understanding of serial-over-Bluetooth control and remote actuation reliability.
+
+#### 2) `Bluetooth Sensor Dashboard`
+I built BLE-based telemetry broadcasting for periodic sensor and uptime data sharing.  
+This strengthened my grasp of BLE communication flow and lightweight low-energy monitoring.
+
+#### 3) `Wi-Fi Temperature Monitor `
+I created a Wi-Fi web interface for live environmental viewing and remote control actions.  
+This project connected embedded sensing with browser-based UI and practical network interaction logic.
+
+#### 4) `MQTT Sensor Publisher`
+I implemented MQTT publish/subscribe topics for scalable telemetry transfer and remote command control.  
+This advanced my knowledge of broker-based architecture and IoT-ready messaging design patterns.
+
+---
+
+## Final Project (`/final_project`)
+
+### Files
+- `README.md`
+- `screenshot.md`
+
+### Project Title
+**IoT-Based Advanced Wildlife Monitoring and Anti-Poaching System**  
+*(Non-Intrusive Remote Tracking & Microclimate Sensing for Conservation)*
+
+### Team
+Group 11 — Anju, Samya Malhotra, Apoorv Shivam, Vidish Gupta  
+Under guidance of Majid Majeed Sir
+
+This project integrates edge sensing, image capture, environmental telemetry, and remote monitoring for conservation use cases.  
+It is designed for deep-forest conditions where power and connectivity are constrained, using event-triggered activation and efficient communication.
+
+### Core Execution Pipeline
+1. Node remains in deep sleep to save power  
+2. PIR/Flame trigger wakes the system  
+3. ESP32-CAM captures image evidence  
+4. DHT + GPS telemetry is recorded  
+5. Data is transmitted via Wi-Fi/LoRa/GSM  
+6. YOLOv8-assisted classification evaluates threat context  
+7. Dashboard logs, monitoring, and alert visibility are updated
+
+### Hardware
+- ESP32-CAM
+- PIR Sensor (HC-SR501)
+- Flame Sensor
+- DHT11/DHT22
+- GSM/LoRa module
+- Li-ion battery pack
+- SG90 servo
+
+---
+
+## Drone Assignment (`/Drone Assignment/questions`)
+
+### Files
+- `README.md`
+
+This module extends my learning into UAV fundamentals, flight mechanics, sensor fusion, and control-system reasoning.  
+It adds strong aerospace-oriented analytical depth that complements my IoT and embedded implementation track.
+
+### Coverage (Q1–Q15)
+- Drone/UAV definition, history, evolution  
+- Real-world drone applications  
+- UAV vs Drone, Fixed-wing vs Multirotor, Quadcopter vs Hexacopter  
+- Quadcopter physics: lift/thrust/drag/gravity/CW-CCW rotation  
+- Drone motion: takeoff, hover, roll, pitch, yaw, landing  
+- Block architecture and component functions  
+- Sensor principles: IMU, accelerometer, gyroscope, magnetometer, barometer, GPS, optical flow, ultrasonic, LiDAR, camera  
+- Comparisons: GPS vs Optical Flow, LiDAR vs Ultrasonic, Gyroscope vs Accelerometer  
+- 6DOF concept and axis-level motion  
+- Full control signal path (pilot input to movement)  
+- PID control importance  
+- Bonus research themes and one practical activity  
+- Higher-order reasoning questions for conceptual depth
+
+---
+
+## Assignment Coverage
+
+## `assignment/`
+- `02-07-2026/Q1-Q17.md`
+
+This assignment set captures IoT architecture analysis, communication trade-offs, security thinking, and practical deployment reasoning.  
+It demonstrates problem-solving beyond coding by connecting technical choices to system outcomes.
+
+## `Assignment 3/`
+- `IoT_Assignment.pdf (or .docx).ino`
+- `IoT_Assignment_Questions.pdf`
+
+This section contains advanced prompt-driven IoT questions and applied design thinking exercises.  
+It strengthens solution framing for realistic domains such as monitoring, control, and resilient smart-system planning.
+
+---
+
+## Theory Coverage (`/theory`)
+
+### Files
+- `README.md`
+- `Q9.md`
+- `Q10.md`
+- `Q11.md`
+- `Q12.md`
+- `Q13.md`
+- `Q19.md`
+- `Q20.md`
+- `Q29.md`
+- `Q30.md`
+
+The theory folder supports strong conceptual grounding across Git workflow, IoT architecture, controller behavior, and protocol fundamentals.  
+These notes complement practical code by explaining the engineering principles behind each implementation.
+
+---
+
+## Portfolio (`/portfolio`)
+
+### Files
+- `README.md`
+
+This section provides a compact, reviewer-friendly overview of the complete journey and key outcomes.  
+It is useful for internship/project evaluation when a quick but structured summary is needed.
+
+---
+
+## Setup & Development Environment
+
+### Hardware
 - Arduino Uno
 - ESP32 / ESP8266
-- Breadboard, jumper wires
-- LEDs, resistors, buzzers, servo motors
-- LDR, DHT11, ultrasonic and related sensors
+- Breadboard + jumper wires
+- LEDs, resistors, buzzer, servo
+- LDR, DHT, ultrasonic, PIR, flame sensors
 
-## Software / Platforms Used
+### Software / Platforms
 - Arduino IDE
 - Tinkercad
 - Wokwi
 - Velxio
-- Serial Monitor tools
-- MQTT client/broker ecosystem tools
+- Serial Monitor
+- MQTT client/broker tools
 
-## Typical Libraries Used
-- `DHT`
-- `PubSubClient`
-- `ArduinoJson`
-- `LiquidCrystal_I2C`
+### Libraries / Protocols
+- Libraries: `DHT`, `PubSubClient`, `ArduinoJson`, `LiquidCrystal_I2C`
+- Protocols: UART, I2C, SPI, Bluetooth, BLE, Wi-Fi, MQTT, HTTP/REST
 
 ---
 
-## 8) Programming Languages and Technical Stack
+## Programming Languages & Formats
 
-- **C/C++** for Arduino and ESP32 sketches
-- **Markdown** for reports, theory notes, and documentation
-- **Python** for utility-level repository scripts
+- **C/C++** for Arduino/ESP firmware
+- **Markdown** for documentation and reports
+- **Python** for utility scripting
 
----
-
-## 9) Learning Outcomes
-
-By the end of this journey, I gained hands-on capability in:
-
-- end-to-end embedded prototyping
-- real-world sensor integration
-- protocol-level IoT communication
-- low-power and real-time behavior design
-- wireless control and cloud telemetry architecture
-- structured engineering documentation for portfolio and review
+This stack reflects practical embedded engineering workflow: control logic, communication integration, and structured documentation.  
+It demonstrates both implementation ability and technical communication quality.
 
 ---
 
-## 10) Fair Use Policy
+## License
 
-This repository is shared for:
-
-- educational learning
-- technical portfolio evaluation
-- reference for embedded/IoT implementation patterns
-
-Allowed:
-- reuse under MIT terms with attribution
-
-Not allowed:
-- academic plagiarism or direct submission of this work as someone else’s original work
-- misrepresentation of authorship
+This repository is licensed under the **MIT License**.  
+See `LICENSE.md` for full terms.
 
 ---
 
-## 11) License
+## Fair Use Policy
 
-This repository is released under the **MIT License**.
+- Shared for education, portfolio review, and technical reference
+- Reuse allowed under MIT terms with attribution
+- Academic plagiarism or false authorship is not allowed
+- Credit original work when adapting any part
 
 ---
 
-## 12) Portfolio Identity
+## Contact & Portfolio Identity
 
 - **Author:** Apoorv Shivam  
-- **Domain Focus:** Embedded Systems, IoT Communication, Wireless and Cloud-Connected Automation  
-- **Use Case:** Internship/project showcase + technical growth documentation
+- **Domain:** Embedded Systems, IoT, Wireless Communication, Drone Systems  
+- **Purpose:** Learning record + internship/project showcase portfolio  
+
+Thank you for reviewing my repository and technical journey.
