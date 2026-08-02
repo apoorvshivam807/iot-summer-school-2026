@@ -203,6 +203,72 @@ Week 4 focused on wireless device control, dashboard interfaces, and message-bro
 - Cloud-ready telemetry and remote control patterns  
 
 ---
+## Final Project Overview
+
+### IoT-Based Advanced Wildlife Monitoring and Anti-Poaching System
+**(Non-Intrusive Remote Tracking & Microclimate Sensing for Conservation)**
+
+
+**Mentor:** Majid Majeed Sir
+
+### Project Objective
+This project builds an integrated IoT monitoring platform for wildlife and forest protection.  
+The system combines motion detection, environmental sensing, location capture, and wireless telemetry to provide real-time remote monitoring for conservation teams.
+
+### Problem Statement
+The project addresses key field challenges:
+- **Human-wildlife conflict** in settlement-border zones
+- **Delayed forest fire detection** causing ecological loss
+- **Poaching risk** in remote regions with low surveillance
+- **No reliable power grid** in deep-forest deployment areas
+- **Unstable high-bandwidth connectivity** under dense canopy
+
+### Proposed SYVIX Solution
+- **Smart IoT edge nodes** for local sensing and processing
+- **Event-triggered architecture** with deep-sleep operation for battery efficiency
+- **ESP32-CAM image capture** on sensor trigger
+- **Microclimate + location telemetry** using DHT and GPS
+- **Wireless uplink** via Wi-Fi / LoRa / GSM
+- **AI-assisted analysis** (YOLOv8-based threat classification pipeline)
+- **Central dashboard** for live alerts, logs, and node status
+
+### High-Level System Architecture
+1. **Edge Layer:** Sensor-equipped IoT nodes collect and preprocess data locally  
+2. **Communication Layer:** Multi-protocol transmission (Wi-Fi/LoRa/GSM)  
+3. **Cloud Layer:** Data aggregation, analytics, model serving, and storage  
+4. **Application Layer:** Dashboard for alerts, history, and operational decisions  
+
+### System Execution Pipeline
+1. Node stays in **Deep Sleep** for power saving  
+2. **PIR/Flame trigger** wakes the controller  
+3. System reads sensors and captures camera frame  
+4. Telemetry + image payload is transmitted to server  
+5. AI model classifies potential human/wildlife/threat activity  
+6. Dashboard logs events and raises alerts for response teams  
+
+### Hardware Components Used
+- **ESP32-CAM** (Wi-Fi + OV2640 camera)
+- **PIR Sensor** (HC-SR501)
+- **Flame Sensor**
+- **DHT11/DHT22** (temperature/humidity)
+- **GSM / LoRa communication module**
+- **Li-ion battery pack**
+- **SG90 servo motor**
+
+### Why IoT in This Project
+IoT enables continuous, remote, and low-maintenance monitoring in locations where human patrol and fixed infrastructure are difficult.  
+By connecting sensors, controller logic, communication modules, and cloud dashboards, the system supports faster detection, better evidence capture, and improved wildlife protection response.
+
+### Current Development Status
+The **Wildlife Sentry Core (SYVIX Technology)** is currently under development with:
+- Telemetry and location capture
+- Live system logging
+- Secure data vault integration
+- AI-enabled safe-state monitoring (YOLOv8 pipeline)
+- Real-time node health tracking (last sync, temperature, humidity)
+
+### Final Project Folder
+`/final_project`
 
 ## 5) Assignments and Academic Coverage
 
