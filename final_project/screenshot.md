@@ -1,0 +1,10 @@
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-1" src="https://github.com/user-attachments/assets/c26cfe1c-392c-4de2-8b12-96f3c6834bdc" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-2" src="https://github.com/user-attachments/assets/2944be75-79bc-41d1-935b-fe9fdec21173" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-3" src="https://github.com/user-attachments/assets/43a8165e-5f06-4d78-9dce-408da85e1395" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-4" src="https://github.com/user-attachments/assets/4a65ff15-a916-4a71-8c3b-467a56b71a35" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-5" src="https://github.com/user-attachments/assets/d0d1bc0d-4a5a-4c02-a7cf-548d7e8a25fa" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-6" src="https://github.com/user-attachments/assets/9097d712-2906-4b42-bfd9-6c6ab9bd7208" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-7" src="https://github.com/user-attachments/assets/f16e8cfa-61b8-4baa-95d4-19d62ff0abbb" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-8" src="https://github.com/user-attachments/assets/9eb511b9-a376-4bc1-bb2d-810edb6dc287" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-9" src="https://github.com/user-attachments/assets/492d00df-34da-4432-b11a-aa29252e59e4" />
+<img width="4001" height="2250" alt="IoT-Based Autonomous Wildlife Monitoring System-10" src="https://github.com/user-attachments/assets/8b02d39a-2a59-4415-9a31-75063ae49d9a" />
